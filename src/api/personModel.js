@@ -5,6 +5,14 @@ const PersonSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  age: {
+    type: Number,
+    required: true,
+  },
+  track: {
+    type: String,
+    required: true,
+  },
 });
 
 const Person = mongoose.model("Person", PersonSchema);

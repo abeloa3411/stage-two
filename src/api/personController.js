@@ -6,12 +6,16 @@ export const getPerson = async (req, res) => {
 
     res.status(200).json(person);
   } catch (error) {
-    res.status(200).send({ msg: error.message });
+    res.status(400).send({ msg: error.message });
   }
 };
 
 export const createPerson = async (req, res) => {
   const { name } = req.body;
+
+  if (!name && typeof name !== "string") {
+    res.status(400).json({ msg: "please check your name." });
+  }
 
   try {
     const newPerson = new Person({
@@ -22,7 +26,7 @@ export const createPerson = async (req, res) => {
 
     res.status(200).json(savedPerson);
   } catch (error) {
-    res.status(200).send({ msg: error.message });
+    res.status(400).send({ msg: error.message });
   }
 };
 
@@ -34,7 +38,7 @@ export const deletePerson = async (req, res) => {
 
     res.status(200).json(deletedPerson);
   } catch (error) {
-    res.status(200).send({ msg: error.message });
+    res.status(400).send({ msg: error.message });
   }
 };
 
@@ -47,12 +51,16 @@ export const updatePerson = async (req, res) => {
     name,
   };
 
+  if (!name && typeof name !== "string") {
+    res.status(400).json({ msg: "please check your name." });
+  }
+
   try {
     const updated = Person.findOneAndUpdate({ _id: id }, data);
 
     res.status(200).json(updated);
   } catch (error) {
-    res.status(200).send({ msg: "the person has been updated" });
+    res.status(400).send({ msg: "the person has been updated" });
   }
 };
 
@@ -64,6 +72,6 @@ export const getSinglePerson = (req, res) => {
 
     res.status(200).json(person);
   } catch (error) {
-    res.status(200).send({ msg: error.message });
+    res.status(400).send({ msg: error.message });
   }
 };
