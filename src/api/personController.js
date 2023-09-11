@@ -1,10 +1,10 @@
-import Person from "./personModel";
+import Person from "./personModel.js";
 
 export const getPerson = async (req, res) => {
   try {
-    const person = await Person.find();
+    const person = await Person.find({});
 
-    request.status(200).json(person);
+    res.status(200).json(person);
   } catch (error) {
     res.status(200).send({ msg: error.message });
   }
@@ -34,7 +34,7 @@ export const deletePerson = async (req, res) => {
 
     res.status(200).json(deletedPerson);
   } catch (error) {
-    res.status(200).send({ msg: "the person has been deelted" });
+    res.status(200).send({ msg: error.message });
   }
 };
 
