@@ -11,7 +11,7 @@ export const getPerson = async (req, res) => {
 };
 
 export const createPerson = async (req, res) => {
-  const { name } = req.body;
+  const { name, age, track } = req.body;
 
   if (!name && typeof name !== "string") {
     res.status(400).json({ msg: "please check your name." });
@@ -20,6 +20,8 @@ export const createPerson = async (req, res) => {
   try {
     const newPerson = new Person({
       name,
+      age,
+      track,
     });
 
     const savedPerson = await newPerson.save();

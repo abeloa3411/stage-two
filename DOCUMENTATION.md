@@ -7,20 +7,22 @@ Link to UML diagrams: https://drive.google.com/file/d/1-FSfW8tQ068q6p8RnJ6tKQ3xI
 
 You can fetch datausing any methods you know ie fetch, axios etc
 
-### get all person
+### get a person
 
 ```js
-fetch("https://hng2-vg6j.onrender.com")
+fetch("https://hng2-vg6j.onrender.com/api/:id")
   .then((res) => res.json())
   .then((json) => console.log(json));
-```
 
-### get a single person
+/*
 
-```js
-fetch("https://hng2-vg6j.onrender.com/api:id")
-  .then((res) => res.json())
-  .then((json) => console.log(json));
+{
+    name: "person name",
+    age: 30,
+    track: "updated person track",
+}
+
+  */
 ```
 
 ### Create a person
@@ -49,7 +51,7 @@ fetch("https://hng2-vg6j.onrender.com/api", {
 ### delete a person
 
 ```js
-fetch("https://hng2-vg6j.onrender.com/api:id", {
+fetch("https://hng2-vg6j.onrender.com/api/:id", {
   method: "DELETE",
 });
 
@@ -68,7 +70,7 @@ the response
 ### update a person
 
 ```js
-fetch("https://hng2-vg6j.onrender.com/api:id", {
+fetch("https://hng2-vg6j.onrender.com/api/:id", {
   method: "PUT",
   body: JSON.stringify({
     name: "updated person name",
