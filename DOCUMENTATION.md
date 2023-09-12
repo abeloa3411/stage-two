@@ -1,6 +1,7 @@
 ### Resources
 
 person:https://hng2-vg6j.onrender.com/api
+Link to UML diagrams: https://drive.google.com/file/d/1-FSfW8tQ068q6p8RnJ6tKQ3xIibuWonN/view?usp=sharing
 
 ### Usage
 
